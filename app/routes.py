@@ -19,6 +19,11 @@ def contato():
 def cadastro():
     return render_template('cadastro.html',titulo="Cadastrar")
 
+@app.route ('/exxcluir')
+def exxcluir():
+    return render_template('exxcluir.html',titulo="Excluir")
+
+
 @app.route('/cadastrarUsuario', methods=['POST'])
 def cadastrarUsuario():
     try:
@@ -61,7 +66,7 @@ def listarIndividual():
 def atualizar():
     try:
         dados = {"nome":"bibi"}
-        requisicao = requests.patch(f'{link}/cadastro/-O8miLD32haHaC8_m7uB/.json',data=json.dumps(dados))
+        requisicao = requests.patch(f'{link}/cadastro//.json',data=json.dumps(dados))
         return 'Atualizado com sucesso!'
 
 
@@ -71,7 +76,7 @@ def atualizar():
 @app.route ('/excluir')
 def excluir():
     try:
-        requisicao = requests.delete(f'{link}/cadastro/-O8miLD32haHaC8_m7uB/.json')
+        requisicao = requests.delete(f'{link}/cadastro//.json')
         return "Excluido com sucesso!"
     except Exception as e:
         return f'Algo deu errado\n + {e}'
